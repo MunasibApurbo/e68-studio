@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Hardened Runtime (non-sandboxed):
+         App Sandbox is intentionally omitted because E68 Studio opens raw HID vendor
+         interfaces (IOHIDManager), adjusts per-mouse IOHIDServiceClient properties,
+         installs global CGEventTaps (Accessibility), reads the desktop wallpaper, and
+         launches /usr/bin/swift for Now Playing artwork extraction.
+
+         Audio Input is required under Hardened Runtime so TCC permits CoreAudio
+         Process Tap capture (AudioHardwareCreateProcessTap + aggregate device). -->
+    <key>com.apple.security.device.audio-input</key>
+    <true/>
+</dict>
+</plist>

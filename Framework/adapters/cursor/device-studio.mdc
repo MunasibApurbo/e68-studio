@@ -1,0 +1,9 @@
+---
+description: Building a macOS companion app for the user's keyboard and mouse with the Device Studio Framework
+alwaysApply: true
+---
+
+- Follow `Framework/START.md`. If `PROGRESS.md` exists, continue from its first unticked item.
+- Before sending anything to a device, follow `Framework/playbooks/hardware-safety.md`: back up, verify every write by reading it back, restore what tests change, never send reset/EEPROM-reset/bootloader commands.
+- Discover hardware only with the read-only tools in `Framework/tools/`.
+- Prove each phase with `--selftest` and headless renders; keep `PROGRESS.md`, `AGENTS.md` and `device-profile.yaml` current.

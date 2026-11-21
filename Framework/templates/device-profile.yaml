@@ -1,0 +1,48 @@
+# Hardware facts. Every value records how it is known: measured | documented | guess.
+# Code takes its constants from here. Update it whenever you learn something.
+
+app:
+  name: MyDeskStudio            # used for the .app, bundle and binary names
+  bundle_id: local.mydeskstudio # change to com.<you>.<app> before notarising
+  min_macos: "26.0"
+
+keyboard:
+  model: ""                     # as printed on the device
+  maker: ""
+  links:
+    usb:
+      vid: 0x0000
+      pid: 0x0000
+      product_string: ""
+      firmware: ""
+      interfaces:               # paste from hid-probe: page:usage, in/out/feature sizes
+        - { page: 0xFF60, usage: 0x61, in: 32, out: 32, feature: 0, role: via, known: measured }
+    dongle_2_4ghz: { vid: 0x0000, pid: 0x0000, interfaces: [] }
+    bluetooth:     { vid: 0x0000, pid: 0x0000, battery_service: false, interfaces: [] }
+  via:
+    definition: Resources/VIA/<file>.json   # if one exists
+    protocol_version: 0
+    layers: 0
+    matrix: { rows: 0, cols: 0 }
+    macro_slots: 0
+    macro_buffer_bytes: 0
+    encoder: false
+  quirks: []                    # e.g. "0x04 single-key read returns junk; verify with 0x12 (measured)"
+
+mouse:
+  model: ""
+  maker: ""
+  links:
+    usb:       { vid: 0x0000, pid: 0x0000, interfaces: [] }
+    dongle:    { vid: 0x0000, pid: 0x0000, interfaces: [] }
+    bluetooth: { vid: 0x0000, pid: 0x0000, interfaces: [] }
+  macos_properties:             # read from the HID service before writing
+    pointer_resolution_dpi: 0
+    acceleration_key: ""        # value of HIDPointerAccelerationType
+  vendor_protocol: unknown      # unknown | documented | captured
+  quirks: []
+
+research:                       # links and what each one told you
+  - { url: "", finding: "" }
+
+open_questions: []              # what is still unknown, and the next safe step to learn it

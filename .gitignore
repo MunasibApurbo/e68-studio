@@ -1,0 +1,20 @@
+# Build products
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.app/
+dist/
+
+# macOS
+.DS_Store
+
+# Local-only material (device backups, raw reference photos, scratch renders)
+Backups/
+Docs/Reference/
+renders-out/
+/renders/
+*.mov
+*.MOV
+*.HEIC
